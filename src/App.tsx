@@ -1,12 +1,13 @@
 import './App.css';
 import { BrowserRouter } from "react-router-dom";
-import NavBar from './components/NavBar';
 import AppRouter from './components/AppRouter';
+import NavPageTitle from './components/NavPageTitle';
+
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavPageTitle />
       <AppRouter />
     </BrowserRouter>
   );

@@ -3,6 +3,10 @@ import React from 'react'
 import NavTasks from '../components/NavTasks';
 import TasksList from '../components/TasksList';
 import User from '../store/User';
+import 'styled-components/macro';
+import MyButton from '../components/myComponents/MyButton';
+import FlexWrapper from '../components/myComponents/FlexWrapper';
+
 
 const TasksPage: React.FC = () => {
     const tasks = User.user.tasks;
@@ -12,13 +16,14 @@ const TasksPage: React.FC = () => {
     }
 
     return (
-        <div>
-            <div className="content__conteiner">
-                <button
-                    style={{ marginLeft: "auto" }}
-                    className="href__button"
-                    onClick={logOff}
-                >log off</button>
+        <div >
+            <div>
+                <FlexWrapper >
+                    <MyButton
+                        margin="0 10px 0 auto"
+                        onClick={logOff}
+                    >log off</MyButton>
+                </FlexWrapper>
                 <NavTasks />
                 {tasks.length
                     ?

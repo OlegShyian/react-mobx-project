@@ -1,8 +1,11 @@
 import { observer } from 'mobx-react-lite';
 import React, { MouseEvent, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import FlexWrapper from '../components/myComponents/FlexWrapper';
+import MyButton from '../components/myComponents/MyButton';
+import MyForm from '../components/myComponents/MyForm';
+import MyInput from '../components/myComponents/MyInput';
+import MyLink from '../components/myComponents/MyLink';
 import User from '../store/User';
-import "./style.css";
 
 
 const RegistrationPage: React.FC = () => {
@@ -38,25 +41,25 @@ const RegistrationPage: React.FC = () => {
     }
 
     return (
-        <div className="login__page">
-            <form className="login_form">
+        <FlexWrapper justify="center" height="50vh">
+            <MyForm>
                 <h1>Registration</h1>
-                <input
+                <MyInput
                     value={user}
                     type="text"
                     placeholder="name"
                     onChange={(e) => setUser(e.target.value)}
                 />
-                <input
+                <MyInput
                     value={password}
                     type="password"
                     placeholder="password"
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className="href__button" onClick={(e) => addNewUser(e)}>registration</button>
-                <Link className="href__button" to="/start">Start Page</Link>
-            </form>
-        </div>
+                <MyButton width="170px" onClick={(e) => addNewUser(e)}>registration</MyButton>
+                <MyLink to="/start">Start Page</MyLink>
+            </MyForm>
+        </FlexWrapper>
     )
 }
 

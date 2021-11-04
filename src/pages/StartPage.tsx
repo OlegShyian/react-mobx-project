@@ -1,16 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import StyledComponent from '../test/styledComponent'
+import FlexWrapper from '../components/myComponents/FlexWrapper'
+import MyLink from '../components/myComponents/MyLink'
+
 
 const StartPage: React.FC = () => {
     return (
-        <div className="wrapper__start__page">
-            <StyledComponent/>
+        <FlexWrapper
+            direction="column"
+            minHeight="300px"
+            height="50vh"
+        >
             <h1>Hellow it is start pages for "Todo" application.</h1>
-            <Link to="/login" className="href__button">login</Link>
+            <MyLink to="/login">login</MyLink>
             <h2>If you are a new user put the "register" button</h2>
-            <Link to="/registration" className="href__button">registration</Link>
-        </div>
+            <MyLink to="/registration">registration</MyLink>
+        </FlexWrapper>
     )
 }
 

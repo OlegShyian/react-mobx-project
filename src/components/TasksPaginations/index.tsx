@@ -1,7 +1,21 @@
 import React, { useMemo } from 'react'
+import styled from 'styled-components';
 import { IPaginationProps } from '../../types/types';
-import "./style.css"
+import FlexWrapper from '../myComponents/FlexWrapper';
 
+
+const StyledSpan = styled.span`
+    padding: 3px 6px;
+    margin: 2px;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 18px;
+    box-sizing: border-box;
+`
+const StyledLimit = styled(StyledSpan)`
+    min-width: 30px;
+    border-radius: 50%;
+`
 
 const TasksPagination: React.FC<IPaginationProps> = ({
     length,
@@ -25,29 +39,27 @@ const TasksPagination: React.FC<IPaginationProps> = ({
 
 
     return (
-        <div className="wrapper__pagination">
-            <div className="page__conteiner">
+        <FlexWrapper justify="space-between" margin="5px 10px">
+            <div>
                 {pageNumbers.map(currentPage =>
-                    <span
+                    <StyledSpan
                         key={currentPage}
-                        className="page"
                         onClick={() => setCurrentPage(currentPage)}
                     >
                         {currentPage}
-                    </span>
+                    </StyledSpan>
                 )}
             </div>
-            <div className="tasks__limit">
+            <div>
                 {tasksOnPage.map((limit: number, ind) =>
-                    <button
+                    <StyledLimit
                         key={ind}
-                        className="pagination__numbers"
                         onClick={() => handleSetLimit(limit)}
-                    >{limit}</button>
+                    >{limit}</StyledLimit>
                 )}
 
             </div>
-        </div>
+        </FlexWrapper>
     )
 }
 
